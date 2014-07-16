@@ -37,20 +37,15 @@ the `yo angular` hang after execution of the command completes.  .
 # Allow grunt to serve files to the lan (the one that connects with your laptop)
 sed -i 's/localhost/0.0.0.0/' Gruntfile.js
 # Start grunt serve task.
-grunt serve --verbose --debug
+grunt serve --verbose
 </code></pre>
 
 *Please note*: The usage of the
-[`--verbose`](http://gruntjs.com/using-the-cli#verbose-v) and
-[`--debug`](http://gruntjs.com/using-the-cli#debug-d) flags in the `grunt serve`
-command are completely optional. If you are new to the
-[grunt](http://gruntjs.com/) javascript task runner it might be helpful to see
+[`--verbose`](http://gruntjs.com/using-the-cli#verbose-v) flag in the
+`grunt serve` command are completely optional. If you are new to the
+[grunt](http://gruntjs.com/) javascript task runner it might be helpful to view
 the output for the purposes of gaining more insight into the process.
 
 Connect to http://127.0.0.1:9000 and edit your project file with your favorite
 IDE from your laptop. So that you have the host responsiveness for the file
 edition process and isolation with dev tools running inside the VM.
-
-How this works: Using a simple Vagrantfile and the vagrant puppet provisioner
-with manifest/default.pp puppet configuration file to setup the box and
-provision dev dependencies with puppet.
