@@ -30,8 +30,14 @@ cd myproj
 yo angular
 </code></pre>
 
-Do to this [issue](https://github.com/yeoman/generator-angular/issues/775#issuecomment-49156543), with bower prompting during yeoman generation, you may see
-the `yo angular` hang after execution of the command completes.  .
+Due to this [issue](https://github.com/yeoman/generator/issues/571), with bower
+prompting for stats feedback during yeoman generation, you may see
+the `yo angular` hang after execution of the command completes. Bower doesn't
+consistently prompt so you may not experience the issue. If this issue does
+occur, one possible workaround is to type `Ctrl`-`T`, stopping yeoman. Then try
+running `bower cache clean` and the `yo angular` again. Quick note: calling
+`yo angular` will prompt you repeatedly before replacing files its already
+created, just answer yes to all.
 
 <pre><code>
 # Allow grunt to serve files to the lan (the one that connects with your laptop)
