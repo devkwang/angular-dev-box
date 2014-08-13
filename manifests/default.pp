@@ -18,6 +18,12 @@ exec { "apt-get update":
   command => "/usr/bin/apt-get update"
 }
 
+# NOT WORKING
+exec { "apt-get -y install libfontconfig":
+  command => "/usr/bin/apt-get -y install libfontconfig",
+  require     => Exec [ "apt-get update" ]
+}
+
 package { "git":
   ensure  => "installed",
   require => Exec [ "apt-get update" ]
@@ -104,4 +110,12 @@ exec { "/usr/bin/npm install -g jshint":
   logoutput => "on_failure",
   creates   => "/usr/local/lib/node_modules/jshint",
   require   => Package [ "npm" ]
+}
+
+
+# install gem - THIS NEED SOME KIND OF creates VERIFICATION TO STOP IT FROM RUNNING AGAIN
+exec { "/usr/bin/gem install compass":
+  user      => "root",
+  logoutput => "on_failure",
+  require   => Package [ "ruby" ]
 }
