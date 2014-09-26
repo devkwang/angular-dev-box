@@ -13,15 +13,17 @@ package { "ruby":
     require => Exec["install_ruby"],
 }
 
-
 exec { "apt-get update":
   command => "/usr/bin/apt-get update"
 }
 
-# NOT WORKING
 exec { "apt-get -y install libfontconfig":
-  command => "/usr/bin/apt-get -y install libfontconfig",
-  require     => Exec [ "apt-get update" ]
+  command => "/usr/bin/apt-get -y install libfontconfig"
+}
+
+exec { "apt-get install ruby-dev":
+  command => "/usr/bin/apt-get -y install ruby-dev",
+  require     => Package [ "ruby" ]
 }
 
 package { "git":
@@ -90,7 +92,6 @@ exec { "/usr/bin/npm install -g grunt-legacy-log":
   require   => Exec [ "/usr/bin/npm install -g grunt-cli" ]
 }
 
-
 exec { "/usr/bin/npm install -g bower":
   user      => "root",
   logoutput => "on_failure",
@@ -103,6 +104,13 @@ exec { "/usr/bin/npm install -g forever":
   logoutput => "on_failure",
   creates   => "/usr/local/lib/node_modules/forever",
   require   => Package [ "npm" ]
+}
+
+exec { "/usr/bin/npm install -g generator-meanjs":
+  user      => "root",
+  logoutput => "on_failure",
+  creates   => "/usr/local/lib/node_modules/generator-meanjs",
+  require   => Exec [ "/usr/bin/npm install -g yo" ]
 }
 
 exec { "/usr/bin/npm install -g jshint":
