@@ -106,6 +106,13 @@ exec { "/usr/bin/npm install -g forever":
   require   => Package [ "npm" ]
 }
 
+exec { "/usr/bin/npm install -g protractor":
+  user      => "root",
+  logoutput => "on_failure",
+  creates   => "/usr/local/lib/node_modules/protractor",
+  require   => Package [ "npm" ]
+}
+
 exec { "/usr/bin/npm install -g generator-meanjs":
   user      => "root",
   logoutput => "on_failure",
