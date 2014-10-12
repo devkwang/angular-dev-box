@@ -29,7 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.name = "AngularJs - with puppet, yeoman, bower, node.js, and grunt."
 
     # Customize memory allocation
-    v.customize ["modifyvm", :id, "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--memory", "512"]
     v.customize ["modifyvm", :id, "--cpus", "1"]
   end
 
