@@ -42,12 +42,12 @@ file { '/home/vagrant/.gitconfig':
 }
 
 package { "npm":
-  ensure  => "installed",
+  ensure  => "present",
   require => Exec [ "apt-get update" ]
 }
 
 package { "nodejs":
-  ensure  => "installed",
+  ensure  => "present",
   require => Exec [ "apt-get update" ]
 }
 
