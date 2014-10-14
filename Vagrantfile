@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider :virtualbox do |v|
     # Name this virtual machine so it can be easily located.
-    v.name = "AngularJs - with puppet, yeoman, bower, node.js, and grunt."
+    v.name = "yo-angular"
 
     # Customize memory allocation
     v.customize ["modifyvm", :id, "--memory", "512"]
